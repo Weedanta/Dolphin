@@ -34,20 +34,20 @@ const itemVariants = {
 
 export default function Pricing({ tripType, setTripType, privatePax, setPrivatePax }: PricingProps) {
   return (
-    <section id="pricing" className="py-16 bg-[#f5f3f1] relative z-10 border-t border-gray-200/40">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="pricing" className="py-12 sm:py-16 bg-[#f5f3f1] relative z-10 border-t border-gray-200/40">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-xl mx-auto mb-10"
+          className="text-center max-w-xl mx-auto mb-8 sm:mb-10"
         >
-          <h2 className="font-['Poppins',sans-serif] font-extrabold text-3xl md:text-5xl text-[#0b3c5d] leading-tight uppercase tracking-tight mb-6">
+          <h2 className="font-['Poppins',sans-serif] font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#0b3c5d] leading-tight uppercase tracking-tight mb-4 sm:mb-6">
             Choose Your Experience
           </h2>
-          <p className="text-gray-600 mb-8">
+          <p className="text-gray-600 text-sm sm:text-base mb-6 sm:mb-8">
             Select the option that best fits your group. Join other travelers or book a private boat for an exclusive journey.
           </p>
 
@@ -125,13 +125,13 @@ export default function Pricing({ tripType, setTripType, privatePax, setPrivateP
               initial="hidden"
               animate="visible"
               exit={{ opacity: 0, y: -15, transition: { duration: 0.25 } }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 items-stretch"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6 items-stretch"
             >
               {openPackages.map((pkg, idx) => (
                 <motion.div
                   key={idx}
                   variants={itemVariants}
-                  className={`bg-white border-3 rounded-[24px] p-6 shadow-[4px_4px_0px_rgba(11,60,93,0.15)] hover:shadow-[6px_6px_0px_#d95e36] hover:border-[#d95e36] hover:bg-orange-50/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative ${
+                  className={`bg-white border-2 sm:border-3 rounded-[18px] sm:rounded-[24px] p-4 sm:p-6 shadow-[3px_3px_0px_rgba(11,60,93,0.15)] sm:shadow-[4px_4px_0px_rgba(11,60,93,0.15)] hover:shadow-[4px_4px_0px_#d95e36] sm:hover:shadow-[6px_6px_0px_#d95e36] hover:border-[#d95e36] hover:bg-orange-50/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative ${
                     pkg.isPopular ? "border-[#d95e36] scale-102 z-10" : "border-[#0b3c5d]"
                   }`}
                 >
@@ -142,12 +142,12 @@ export default function Pricing({ tripType, setTripType, privatePax, setPrivateP
                     </span>
                   )}
                   <div>
-                    <h3 className="font-bold text-lg text-[#0b3c5d] mb-1">{pkg.name}</h3>
-                    <div className="mb-6 flex items-baseline mt-3">
-                      <span className="text-2xl font-black text-[#d95e36]">Rp {pkg.price}</span>
+                    <h3 className="font-bold text-base sm:text-lg text-[#0b3c5d] mb-1">{pkg.name}</h3>
+                    <div className="mb-4 sm:mb-6 flex items-baseline mt-2 sm:mt-3">
+                      <span className="text-xl sm:text-2xl font-black text-[#d95e36]">Rp {pkg.price}</span>
                       <span className="text-gray-400 text-xs ml-1">/ pax</span>
                     </div>
-                    <ul className="space-y-3 mb-8 border-t border-gray-100 pt-4">
+                    <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8 border-t border-gray-100 pt-3 sm:pt-4">
                       {pkg.features.map((feat, fIdx) => (
                         <li key={fIdx} className="flex items-start gap-2 text-[13px] text-gray-600">
                           <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
@@ -179,7 +179,7 @@ export default function Pricing({ tripType, setTripType, privatePax, setPrivateP
               initial="hidden"
               animate="visible"
               exit={{ opacity: 0, y: -15, transition: { duration: 0.25 } }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 items-stretch"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6 items-stretch"
             >
               {privatePackages.map((pkg, idx) => {
                 const currentPrice = pkg.prices[privatePax];
@@ -189,7 +189,7 @@ export default function Pricing({ tripType, setTripType, privatePax, setPrivateP
                   <motion.div
                     key={idx}
                     variants={itemVariants}
-                    className={`bg-white border-3 rounded-[24px] p-6 shadow-[4px_4px_0px_rgba(11,60,93,0.15)] hover:shadow-[6px_6px_0px_#d95e36] hover:border-[#d95e36] hover:bg-orange-50/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative ${
+                    className={`bg-white border-2 sm:border-3 rounded-[18px] sm:rounded-[24px] p-4 sm:p-6 shadow-[3px_3px_0px_rgba(11,60,93,0.15)] sm:shadow-[4px_4px_0px_rgba(11,60,93,0.15)] hover:shadow-[4px_4px_0px_#d95e36] sm:hover:shadow-[6px_6px_0px_#d95e36] hover:border-[#d95e36] hover:bg-orange-50/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative ${
                       pkg.isPopular ? "border-[#d95e36] scale-102 z-10" : "border-[#0b3c5d]"
                     }`}
                   >
@@ -200,15 +200,15 @@ export default function Pricing({ tripType, setTripType, privatePax, setPrivateP
                       </span>
                     )}
                     <div>
-                      <h3 className="font-bold text-lg text-[#0b3c5d] mb-1">{pkg.name}</h3>
-                      <div className="mb-6 flex flex-col mt-3">
+                      <h3 className="font-bold text-base sm:text-lg text-[#0b3c5d] mb-1">{pkg.name}</h3>
+                      <div className="mb-4 sm:mb-6 flex flex-col mt-2 sm:mt-3">
                         <span className="text-[11px] text-gray-400 font-bold uppercase tracking-wider">Total Price ({privatePax} People)</span>
                         <div className="flex items-baseline">
-                          <span className="text-2xl font-black text-[#d95e36]">Rp {formattedPrice}</span>
+                          <span className="text-xl sm:text-2xl font-black text-[#d95e36]">Rp {formattedPrice}</span>
                           <span className="text-gray-400 text-xs ml-1">/ boat</span>
                         </div>
                       </div>
-                      <ul className="space-y-3 mb-8 border-t border-gray-100 pt-4">
+                      <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8 border-t border-gray-100 pt-3 sm:pt-4">
                         {pkg.features.map((feat, fIdx) => (
                           <li key={fIdx} className="flex items-start gap-2 text-[13px] text-gray-600">
                             <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
