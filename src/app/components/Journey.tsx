@@ -122,30 +122,30 @@ const cardVariants = {
 
 export default function Journey() {
   return (
-    <section id="journey" className="pt-16 pb-12 bg-gradient-to-b from-[#fbf9f7] to-[#f5f3f1] relative z-10">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="journey" className="pt-12 sm:pt-16 pb-10 sm:pb-12 bg-gradient-to-b from-[#fbf9f7] to-[#f5f3f1] relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10"
+          className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-10"
         >
           <div className="max-w-xl">
             <span className="bg-sky-100 text-[#0b3c5d] border-2 border-[#0b3c5d]/30 font-bold text-xs uppercase px-4 py-1.5 rounded-full inline-block mb-4 shadow-[1.5px_1.5px_0px_rgba(11,60,93,0.15)] tracking-wider">
               THE JOURNEY
             </span>
-            <h2 className="font-extrabold text-3xl md:text-5xl text-[#0b3c5d] leading-tight uppercase tracking-tight">
+            <h2 className="font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#0b3c5d] leading-tight uppercase tracking-tight">
               What You'll Experience
             </h2>
             <p className="text-gray-500 mt-4 text-sm md:text-base leading-relaxed">
               Every trip with Doltrip Lovina is equipped with premium facilities and high safety standards for the maximum comfort of your adventure.
             </p>
           </div>
-          <div className="bg-white text-[#0b3c5d] font-bold text-xs md:text-sm px-6 py-4 rounded-2xl flex items-center gap-3 border-2 border-[#0b3c5d] self-start shadow-[3px_3px_0px_#0b3c5d]">
-            <Clock className="w-5 h-5 text-[#d95e36] stroke-[2.5]" />
-            <span>2–3 Hour Trip | Departures: 06:00 · 09:00 · 16:00</span>
+          <div className="bg-white text-[#0b3c5d] font-bold text-[10px] sm:text-xs md:text-sm px-3 py-2.5 sm:px-4 sm:py-3 md:px-6 md:py-4 rounded-xl sm:rounded-2xl flex items-center gap-2 sm:gap-3 border-2 border-[#0b3c5d] self-start shadow-[2px_2px_0px_#0b3c5d] sm:shadow-[3px_3px_0px_#0b3c5d]">
+            <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-[#d95e36] stroke-[2.5] shrink-0" />
+            <span className="leading-snug">2–3 Hour Trip | Departures: 06:00 · 09:00 · 16:00</span>
           </div>
         </motion.div>
 
@@ -155,9 +155,9 @@ export default function Journey() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
-          className="bg-white border-4 border-[#0b3c5d] rounded-[32px] p-6 md:p-10 shadow-[6px_6px_0px_rgba(11,60,93,0.15)]"
+          className="bg-white border-3 sm:border-4 border-[#0b3c5d] rounded-[20px] sm:rounded-[32px] p-4 sm:p-6 md:p-10 shadow-[4px_4px_0px_rgba(11,60,93,0.15)] sm:shadow-[6px_6px_0px_rgba(11,60,93,0.15)]"
         >
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 md:gap-6 w-full">
             <motion.div custom={0} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={cardVariants}>
               <IconBalineseCeremony />
             </motion.div>

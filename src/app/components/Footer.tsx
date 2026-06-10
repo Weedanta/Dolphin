@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <>
       {/* Ready to Meet Section */}
-      <section className="py-16 text-white relative overflow-hidden z-10">
+      <section className="py-10 sm:py-16 text-white relative overflow-hidden z-10">
         {/* Background Image and Overlay */}
         <div className="absolute inset-0 z-0">
           <img
@@ -24,13 +24,13 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="relative z-10 max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left"
+          className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 text-center md:text-left"
         >
           <div className="max-w-xl">
-            <h2 className="font-['Poppins',sans-serif] font-bold text-3xl md:text-5xl mb-4 text-[#f7c59f]">
+            <h2 className="font-['Poppins',sans-serif] font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4 text-[#f7c59f]">
               Ready to Meet the Dolphins?
             </h2>
-            <p className="text-white/90 text-base md:text-lg leading-relaxed font-medium">
+            <p className="text-white/90 text-sm sm:text-base md:text-lg leading-relaxed font-medium">
               Dolphin spots fill up quickly! Reach out to secure your booking
               today for the most memorable sunrise cruise in Lovina, Bali.
             </p>
@@ -40,7 +40,7 @@ export default function Footer() {
               href={getWhatsAppLink("Booking Inquiry", false)}
               target="_blank"
               rel="noreferrer"
-              className="w-full sm:w-auto bg-[#d95e36] hover:bg-[#c64d26] border-3 border-[#0b3c5d] text-white font-bold px-8 py-4 rounded-xl shadow-[3px_3px_0px_#0b3c5d] hover:translate-y-0.5 active:translate-y-1 transition-all flex items-center justify-center gap-2 text-base uppercase"
+              className="w-full sm:w-auto bg-[#d95e36] hover:bg-[#c64d26] border-2 sm:border-3 border-[#0b3c5d] text-white font-bold px-5 py-3 sm:px-8 sm:py-4 rounded-xl shadow-[2px_2px_0px_#0b3c5d] sm:shadow-[3px_3px_0px_#0b3c5d] hover:translate-y-0.5 active:translate-y-1 transition-all flex items-center justify-center gap-2 text-sm sm:text-base uppercase"
             >
               <MessageCircle className="w-5 h-5 fill-white" />
               Book via WhatsApp
@@ -49,7 +49,7 @@ export default function Footer() {
               href="https://instagram.com/doltrip.lovina"
               target="_blank"
               rel="noreferrer"
-              className="w-full sm:w-auto border border-white/40 hover:bg-white/10 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 text-base"
+              className="w-full sm:w-auto border border-white/40 hover:bg-white/10 text-white font-semibold px-5 py-3 sm:px-8 sm:py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
             >
               <Instagram className="w-5 h-5 text-pink-400" />
               Follow Instagram
@@ -59,9 +59,9 @@ export default function Footer() {
       </section>
 
       {/* Footer Section */}
-      <footer className="bg-[#181a1c] text-gray-400 py-12 relative z-10 border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+      <footer className="bg-[#181a1c] text-gray-400 py-8 sm:py-12 relative z-10 border-t border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
             {/* Info Brand */}
             <div>
               <div className="flex items-center gap-3 mb-6">
@@ -156,7 +156,7 @@ export default function Footer() {
           </div>
 
           {/* Bottom Border */}
-          <div className="border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+          <div className="border-t border-gray-800 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 text-xs">
             <p className="text-gray-500">
               © 2026 Doltrip Lovina. All rights reserved.
             </p>
