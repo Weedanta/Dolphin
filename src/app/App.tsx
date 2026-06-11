@@ -5,15 +5,20 @@ import Hero from "./components/Hero";
 import Journey from "./components/Journey";
 import Pricing from "./components/Pricing";
 import Footer from "./components/Footer";
+import type { Currency } from "@/app/utils/data";
+import { useExchangeRate } from "@/app/utils/useExchangeRate";
 
 export default function App() {
   const [tripType, setTripType] = useState<"open" | "private">("open");
   const [privatePax, setPrivatePax] = useState<2 | 3 | 4>(2);
+  const [currency, setCurrency] = useState<Currency>("IDR");
   const [visible, setVisible] = useState(true);
   const [isTransparent, setIsTransparent] = useState(true);
   const [loading, setLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
   const [startAnim, setStartAnim] = useState(false);
+
+  const { formatUsd, rate, loading: rateLoading } = useExchangeRate();
 
   useEffect(() => {
     // Page loader timers - synchronized with horizontal stripes transition
@@ -80,6 +85,8 @@ export default function App() {
         tripType={tripType}
         privatePax={privatePax}
         setPrivatePax={setPrivatePax}
+        currency={currency}
+        formatUsd={formatUsd}
       />
 
       {/* Journey Section */}
@@ -91,6 +98,11 @@ export default function App() {
         setTripType={setTripType}
         privatePax={privatePax}
         setPrivatePax={setPrivatePax}
+        currency={currency}
+        setCurrency={setCurrency}
+        formatUsd={formatUsd}
+        exchangeRate={rate}
+        rateLoading={rateLoading}
       />
 
       {/* Footer & Call to Action */}
