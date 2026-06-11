@@ -2,7 +2,8 @@ import { Check, Info, Instagram, MessageCircle, Phone } from "lucide-react";
 import imgLovinaSunriseBeach from "@/imports/Design/lovina_sunrise_beach.png";
 import imgLovinaJukungBoat from "@/imports/Design/lovina_jukung_boat.png";
 import imgWildDolphinsSwimmingInTheOceanAtSunrise from "@/imports/Design/3ce13b3f2b2f1f3d9ef09e61095ac9fdc95e73f3.png";
-import { openPackages, privatePackages } from "@/app/utils/data";
+import { openPackages, privatePackages, startingPrices } from "@/app/utils/data";
+import type { Currency } from "@/app/utils/data";
 import { getWhatsAppLink } from "@/app/utils/whatsapp";
 
 interface PolaroidProps {
@@ -33,6 +34,8 @@ interface HeroProps {
   tripType: "open" | "private";
   privatePax: 2 | 3 | 4;
   setPrivatePax: (pax: 2 | 3 | 4) => void;
+  currency: Currency;
+  formatUsd: (idrAmount: number) => string;
 }
 
 export default function Hero({
@@ -40,6 +43,8 @@ export default function Hero({
   tripType,
   privatePax,
   setPrivatePax,
+  currency,
+  formatUsd,
 }: HeroProps) {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden z-10">
@@ -130,7 +135,10 @@ export default function Hero({
                   Start From
                 </div>
                 <div className="text-sm sm:text-base lg:text-sm xl:text-xl 2xl:text-2xl font-black text-[#00263f] leading-none my-0.5">
-                  Rp {tripType === "open" ? "80.000" : "300.000"}
+                  {currency === "IDR"
+                    ? `Rp ${tripType === "open" ? "80.000" : "300.000"}`
+                    : formatUsd(startingPrices[tripType])
+                  }
                 </div>
                 <div className="text-[7px] sm:text-[8px] lg:text-[7px] xl:text-[9px] 2xl:text-[10px] text-right font-bold italic text-[#00263f]">
                   Book Now!
@@ -184,7 +192,7 @@ export default function Hero({
                           </span>
                         </div>
                         <span className="text-[9px] sm:text-[11px] lg:text-[10px] xl:text-xs 2xl:text-sm font-black text-[#d95e36] bg-orange-50 px-1 sm:px-1.5 py-0.5 rounded border border-orange-200 shrink-0">
-                          {pkg.price}
+                          {currency === "IDR" ? pkg.price : formatUsd(pkg.priceNum)}
                         </span>
                       </div>
                     ))
@@ -203,7 +211,7 @@ export default function Hero({
                             </span>
                           </div>
                           <span className="text-[9px] sm:text-[11px] lg:text-[10px] xl:text-xs 2xl:text-sm font-black text-[#d95e36] bg-orange-50 px-1 sm:px-1.5 py-0.5 rounded border border-orange-200 shrink-0">
-                            {formattedPrice}k
+                            {currency === "IDR" ? `${formattedPrice}k` : formatUsd(currentPrice)}
                           </span>
                         </div>
                       );

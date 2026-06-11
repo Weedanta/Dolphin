@@ -1,6 +1,7 @@
-import { Flame, Users, Anchor, Check, Info } from "lucide-react";
+import { Flame, Users, Anchor, Check, Info, RefreshCw } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { openPackages, privatePackages } from "@/app/utils/data";
+import type { Currency } from "@/app/utils/data";
 import { getWhatsAppLink } from "@/app/utils/whatsapp";
 
 interface PricingProps {
@@ -8,6 +9,11 @@ interface PricingProps {
   setTripType: (type: "open" | "private") => void;
   privatePax: 2 | 3 | 4;
   setPrivatePax: (pax: 2 | 3 | 4) => void;
+  currency: Currency;
+  setCurrency: (currency: Currency) => void;
+  formatUsd: (idrAmount: number) => string;
+  exchangeRate: number;
+  rateLoading: boolean;
 }
 
 const containerVariants = {
@@ -32,7 +38,7 @@ const itemVariants = {
   }
 };
 
-export default function Pricing({ tripType, setTripType, privatePax, setPrivatePax }: PricingProps) {
+export default function Pricing({ tripType, setTripType, privatePax, setPrivatePax, currency, setCurrency, formatUsd, exchangeRate, rateLoading }: PricingProps) {
   return (
     <section id="pricing" className="py-12 sm:py-16 bg-[#f5f3f1] relative z-10 border-t border-gray-200/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -44,7 +50,7 @@ export default function Pricing({ tripType, setTripType, privatePax, setPrivateP
           transition={{ duration: 0.6 }}
           className="text-center max-w-xl mx-auto mb-8 sm:mb-10"
         >
-          <h2 className="font-['Poppins',sans-serif] font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#0b3c5d] leading-tight uppercase tracking-tight mb-4 sm:mb-6">
+        <h2 className="font-['Poppins',sans-serif] font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#0b3c5d] leading-tight uppercase tracking-tight mb-4 sm:mb-6">
             Choose Your Experience
           </h2>
           <p className="text-gray-600 text-sm sm:text-base mb-6 sm:mb-8">
@@ -75,6 +81,43 @@ export default function Pricing({ tripType, setTripType, privatePax, setPrivateP
               <Anchor className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               Private Boat
             </button>
+          </div>
+
+          {/* Currency Toggle */}
+          <div className="mt-4 flex flex-col items-center gap-1.5">
+            <div className="bg-gray-200/50 p-0.5 rounded-lg inline-flex items-center gap-0.5 shadow-inner border border-gray-300/30">
+              <button
+                onClick={() => setCurrency("IDR")}
+                className={`px-3 py-1.5 rounded-md font-bold text-[11px] sm:text-xs transition-all duration-300 inline-flex items-center gap-1 ${
+                  currency === "IDR"
+                    ? "bg-white text-[#0b3c5d] shadow-sm"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
+                <span className="text-sm">🇮🇩</span>
+                IDR
+              </button>
+              <button
+                onClick={() => setCurrency("USD")}
+                className={`px-3 py-1.5 rounded-md font-bold text-[11px] sm:text-xs transition-all duration-300 inline-flex items-center gap-1 ${
+                  currency === "USD"
+                    ? "bg-white text-[#0b3c5d] shadow-sm"
+                    : "text-gray-500 hover:text-gray-700"
+                }`}
+              >
+                <span className="text-sm">🇺🇸</span>
+                USD
+              </button>
+            </div>
+            {/* Live rate indicator - only when USD is selected */}
+            {currency === "USD" && (
+              <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] text-gray-400">
+                <RefreshCw className={`w-3 h-3 ${rateLoading ? "animate-spin" : ""}`} />
+                <span>
+                  Live rate: 1 USD = Rp {new Intl.NumberFormat("id-ID").format(Math.round(exchangeRate))}
+                </span>
+              </div>
+            )}
           </div>
         </motion.div>
 
@@ -144,7 +187,9 @@ export default function Pricing({ tripType, setTripType, privatePax, setPrivateP
                   <div>
                     <h3 className="font-bold text-base sm:text-lg text-[#0b3c5d] mb-1">{pkg.name}</h3>
                     <div className="mb-4 sm:mb-6 flex items-baseline mt-2 sm:mt-3">
-                      <span className="text-xl sm:text-2xl font-black text-[#d95e36]">Rp {pkg.price}</span>
+                      <span className="text-xl sm:text-2xl font-black text-[#d95e36]">
+                        {currency === "IDR" ? `Rp ${pkg.price}` : formatUsd(pkg.priceNum)}
+                      </span>
                       <span className="text-gray-400 text-xs ml-1">/ pax</span>
                     </div>
                     <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8 border-t border-gray-100 pt-3 sm:pt-4">
@@ -204,7 +249,9 @@ export default function Pricing({ tripType, setTripType, privatePax, setPrivateP
                       <div className="mb-4 sm:mb-6 flex flex-col mt-2 sm:mt-3">
                         <span className="text-[11px] text-gray-400 font-bold uppercase tracking-wider">Total Price ({privatePax} People)</span>
                         <div className="flex items-baseline">
-                          <span className="text-xl sm:text-2xl font-black text-[#d95e36]">Rp {formattedPrice}</span>
+                          <span className="text-xl sm:text-2xl font-black text-[#d95e36]">
+                            {currency === "IDR" ? `Rp ${formattedPrice}` : formatUsd(currentPrice)}
+                          </span>
                           <span className="text-gray-400 text-xs ml-1">/ boat</span>
                         </div>
                       </div>
