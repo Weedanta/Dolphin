@@ -1,5 +1,3 @@
-export type Currency = "IDR" | "USD";
-
 export const openPackages = [
   {
     name: "Dolphin watching",

@@ -1,24 +1,25 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Loader from "./components/Loader";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Journey from "./components/Journey";
 import Pricing from "./components/Pricing";
 import Footer from "./components/Footer";
-import type { Currency } from "@/app/utils/data";
-import { useExchangeRate } from "@/app/utils/useExchangeRate";
+import { useLanguage } from "./utils/LanguageContext";
 
 export default function App() {
   const [tripType, setTripType] = useState<"open" | "private">("open");
   const [privatePax, setPrivatePax] = useState<2 | 3 | 4>(2);
-  const [currency, setCurrency] = useState<Currency>("IDR");
   const [visible, setVisible] = useState(true);
   const [isTransparent, setIsTransparent] = useState(true);
   const [loading, setLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
   const [startAnim, setStartAnim] = useState(false);
 
-  const { formatUsd, rate, loading: rateLoading } = useExchangeRate();
+  const { locale } = useLanguage();
+  const prevLocale = useRef(locale);
+  const [transitioning, setTransitioning] = useState(false);
 
   useEffect(() => {
     // Page loader timers - synchronized with horizontal stripes transition
@@ -39,6 +40,18 @@ export default function App() {
       clearTimeout(animTimer);
     };
   }, []);
+
+  // Smooth transition when locale changes
+  useEffect(() => {
+    if (prevLocale.current !== locale) {
+      setTransitioning(true);
+      const timer = setTimeout(() => {
+        setTransitioning(false);
+        prevLocale.current = locale;
+      }, 50); // brief flash to reset AnimatePresence key
+      return () => clearTimeout(timer);
+    }
+  }, [locale]);
 
   useEffect(() => {
     let prevScrollPos = window.scrollY;
@@ -79,34 +92,38 @@ export default function App() {
         setTripType={setTripType}
       />
 
-      {/* Hero Section */}
-      <Hero
-        startAnim={startAnim}
-        tripType={tripType}
-        privatePax={privatePax}
-        setPrivatePax={setPrivatePax}
-        currency={currency}
-        formatUsd={formatUsd}
-      />
+      {/* Page Content with locale transition */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={locale}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
+          {/* Hero Section */}
+          <Hero
+            startAnim={startAnim}
+            tripType={tripType}
+            privatePax={privatePax}
+            setPrivatePax={setPrivatePax}
+          />
 
-      {/* Journey Section */}
-      <Journey />
+          {/* Journey Section */}
+          <Journey />
 
-      {/* Pricing / Packages Section */}
-      <Pricing
-        tripType={tripType}
-        setTripType={setTripType}
-        privatePax={privatePax}
-        setPrivatePax={setPrivatePax}
-        currency={currency}
-        setCurrency={setCurrency}
-        formatUsd={formatUsd}
-        exchangeRate={rate}
-        rateLoading={rateLoading}
-      />
+          {/* Pricing / Packages Section */}
+          <Pricing
+            tripType={tripType}
+            setTripType={setTripType}
+            privatePax={privatePax}
+            setPrivatePax={setPrivatePax}
+          />
 
-      {/* Footer & Call to Action */}
-      <Footer />
+          {/* Footer & Call to Action */}
+          <Footer />
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 }
