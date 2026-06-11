@@ -64,9 +64,6 @@ export default function Journey() {
           className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-10"
         >
           <div className="max-w-xl">
-            <span className="bg-sky-100 text-[#0b3c5d] border-2 border-[#0b3c5d]/30 font-bold text-xs uppercase px-4 py-1.5 rounded-full inline-block mb-4 shadow-[1.5px_1.5px_0px_rgba(11,60,93,0.15)] tracking-wider">
-              {t("journey.tag")}
-            </span>
             <h2 className="font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#0b3c5d] leading-tight uppercase tracking-tight">
               {t("journey.title")}
             </h2>
@@ -97,6 +94,8 @@ export default function Journey() {
                   wrapW={cfg.wrapW}
                   wrapH={cfg.wrapH}
                   lines={cfg.keys.map(k => t(k))}
+                  svgW={cfg.wrapW}
+                  svgH={cfg.wrapH}
                 />
               </motion.div>
             ))}
