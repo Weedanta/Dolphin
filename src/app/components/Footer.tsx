@@ -3,8 +3,11 @@ import { motion } from "framer-motion";
 import imgDoltripLovinaLogo from "@/imports/Design/d303a0c9165b71c7002d625facdd22a45d8aabe1.png";
 import imgLovinaSunriseBeach from "@/imports/Design/lovina_sunrise_beach.png";
 import { getWhatsAppLink } from "@/app/utils/whatsapp";
+import { useLanguage } from "@/app/utils/LanguageContext";
 
 export default function Footer() {
+  const { locale, t } = useLanguage();
+
   return (
     <>
       {/* Ready to Meet Section */}
@@ -28,22 +31,21 @@ export default function Footer() {
         >
           <div className="max-w-xl">
             <h2 className="font-['Poppins',sans-serif] font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4 text-[#f7c59f]">
-              Ready to Meet the Dolphins?
+              {t("footer.readyTitle")}
             </h2>
             <p className="text-white/90 text-sm sm:text-base md:text-lg leading-relaxed font-medium">
-              Dolphin spots fill up quickly! Reach out to secure your booking
-              today for the most memorable sunrise cruise in Lovina, Bali.
+              {t("footer.readyDesc")}
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto shrink-0">
             <a
-              href={getWhatsAppLink("Booking Inquiry", false)}
+              href={getWhatsAppLink("Booking Inquiry", false, undefined, locale)}
               target="_blank"
               rel="noreferrer"
               className="w-full sm:w-auto bg-[#d95e36] hover:bg-[#c64d26] border-2 sm:border-3 border-[#0b3c5d] text-white font-bold px-5 py-3 sm:px-8 sm:py-4 rounded-xl shadow-[2px_2px_0px_#0b3c5d] sm:shadow-[3px_3px_0px_#0b3c5d] hover:translate-y-0.5 active:translate-y-1 transition-all flex items-center justify-center gap-2 text-sm sm:text-base uppercase"
             >
               <MessageCircle className="w-5 h-5 fill-white" />
-              Book via WhatsApp
+              {t("footer.bookWhatsapp")}
             </a>
             <a
               href="https://instagram.com/doltrip.lovina"
@@ -52,7 +54,7 @@ export default function Footer() {
               className="w-full sm:w-auto border border-white/40 hover:bg-white/10 text-white font-semibold px-5 py-3 sm:px-8 sm:py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
             >
               <Instagram className="w-5 h-5 text-pink-400" />
-              Follow Instagram
+              {t("footer.followIg")}
             </a>
           </div>
         </motion.div>
@@ -75,40 +77,32 @@ export default function Footer() {
                 </span>
               </div>
               <p className="text-sm leading-relaxed text-gray-400 max-w-sm">
-                Premium marine tourism experiences in Lovina, Bali. Eco-friendly
-                sunrise dolphin cruises and coral reef snorkeling led by local
-                professional guides.
+                {t("footer.brandDesc")}
               </p>
             </div>
 
             {/* Quick Links */}
             <div>
               <h4 className="font-bold text-white mb-6 text-sm uppercase tracking-wider">
-                Quick Links
+                {t("footer.quickLinks")}
               </h4>
               <ul className="space-y-4 text-sm font-medium">
                 <li>
-                  <a
-                    href="#journey"
-                    className="hover:text-white transition-colors"
-                  >
-                    Our Journey
+                  <a href="#journey" className="hover:text-white transition-colors">
+                    {t("footer.ourJourney")}
+                  </a>
+                </li>
+                <li>
+                  <a href="#pricing" className="hover:text-white transition-colors">
+                    {t("footer.packagesPricing")}
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#pricing"
+                    href={getWhatsAppLink("Custom Tour Inquiry", false, undefined, locale)}
                     className="hover:text-white transition-colors"
                   >
-                    Packages & Pricing
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={getWhatsAppLink("Custom Tour Inquiry", false)}
-                    className="hover:text-white transition-colors"
-                  >
-                    Custom Tours
+                    {t("footer.customTours")}
                   </a>
                 </li>
               </ul>
@@ -117,15 +111,14 @@ export default function Footer() {
             {/* Social Media Contact */}
             <div>
               <h4 className="font-bold text-white mb-6 text-sm uppercase tracking-wider">
-                Connect With Us
+                {t("footer.connectWithUs")}
               </h4>
               <p className="text-sm text-gray-400 mb-6">
-                Feel free to follow us or chat with our admin directly through
-                our social media channels.
+                {t("footer.connectDesc")}
               </p>
               <div className="flex items-center gap-4">
                 <a
-                  href={getWhatsAppLink("Contact Info", false)}
+                  href={getWhatsAppLink("Contact Info", false, undefined, locale)}
                   target="_blank"
                   rel="noreferrer"
                   className="w-10 h-10 rounded-full bg-gray-800 hover:bg-[#d95e36] text-white flex items-center justify-center transition-all duration-300"
@@ -158,14 +151,14 @@ export default function Footer() {
           {/* Bottom Border */}
           <div className="border-t border-gray-800 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 text-xs">
             <p className="text-gray-500">
-              © 2026 Doltrip Lovina. All rights reserved.
+              {t("footer.copyright")}
             </p>
             <div className="flex gap-6 text-gray-500">
               <a href="#" className="hover:text-white transition-colors">
-                Privacy Policy
+                {t("footer.privacy")}
               </a>
               <a href="#" className="hover:text-white transition-colors">
-                Terms of Service
+                {t("footer.terms")}
               </a>
             </div>
           </div>

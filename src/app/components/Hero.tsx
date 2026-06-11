@@ -2,9 +2,9 @@ import { Check, Info, Instagram, MessageCircle, Phone } from "lucide-react";
 import imgLovinaSunriseBeach from "@/imports/Design/lovina_sunrise_beach.png";
 import imgLovinaJukungBoat from "@/imports/Design/lovina_jukung_boat.png";
 import imgWildDolphinsSwimmingInTheOceanAtSunrise from "@/imports/Design/3ce13b3f2b2f1f3d9ef09e61095ac9fdc95e73f3.png";
-import { openPackages, privatePackages, startingPrices } from "@/app/utils/data";
-import type { Currency } from "@/app/utils/data";
+import { openPackages, privatePackages } from "@/app/utils/data";
 import { getWhatsAppLink } from "@/app/utils/whatsapp";
+import { useLanguage } from "@/app/utils/LanguageContext";
 
 interface PolaroidProps {
   src: string;
@@ -34,8 +34,6 @@ interface HeroProps {
   tripType: "open" | "private";
   privatePax: 2 | 3 | 4;
   setPrivatePax: (pax: 2 | 3 | 4) => void;
-  currency: Currency;
-  formatUsd: (idrAmount: number) => string;
 }
 
 export default function Hero({
@@ -43,9 +41,9 @@ export default function Hero({
   tripType,
   privatePax,
   setPrivatePax,
-  currency,
-  formatUsd,
 }: HeroProps) {
+  const { locale, t, formatPrice, formatStartPrice } = useLanguage();
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden z-10">
       {/* Real Beach Background Image */}
@@ -63,8 +61,7 @@ export default function Hero({
       <div className="relative z-10 w-full h-full max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-center py-14 sm:py-16 lg:py-14">
         {/* Screen-reader and Search-engine only H1 header */}
         <h1 className="sr-only">
-          Doltrip Lovina | Best Dolphin Watching & Snorkeling Tours in Lovina
-          Beach, Bali
+          {t("hero.h1")}
         </h1>
 
         {/* Main Title Banner in Outline Style */}
@@ -76,14 +73,14 @@ export default function Hero({
           }`}
         >
           <div className="font-extrabold text-white text-2xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-7xl 2xl:text-8xl tracking-wide uppercase select-none leading-none text-outline-title">
-            Open Trip
+            {t("hero.openTrip")}
           </div>
           <div className="font-extrabold text-white text-lg sm:text-2xl md:text-3xl lg:text-[2.25rem] xl:text-5xl 2xl:text-6xl tracking-wide uppercase select-none leading-none mt-0.5 sm:mt-1 text-outline-subtitle">
-            Doltrip Lovina
+            {t("hero.subtitle")}
           </div>
           <div className="mt-1.5 sm:mt-2 lg:mt-2 xl:mt-3">
             <span className="bg-yellow-400 text-[#0b3c5d] border-2 border-[#0b3c5d] font-bold text-[10px] sm:text-xs lg:text-sm xl:text-lg px-3 sm:px-4 lg:px-5 xl:px-6 py-0.5 sm:py-1 xl:py-1.5 rounded-full inline-block shadow-[2px_2px_0px_#0b3c5d] tracking-wider uppercase">
-              {tripType === "open" ? "Sharing Boat" : "Private Boat"}
+              {tripType === "open" ? t("hero.sharingBoat") : t("hero.privateBoat")}
             </span>
           </div>
         </div>
@@ -101,22 +98,22 @@ export default function Hero({
             <Polaroid
               src={imgWildDolphinsSwimmingInTheOceanAtSunrise}
               rotation="rotate-[-4deg]"
-              caption="Sunrise Dolphin"
+              caption={t("hero.sunriseDolphin")}
             />
             <Polaroid
               src={imgLovinaJukungBoat}
               rotation="rotate-[3deg]"
-              caption="Dolphin Tour"
+              caption={t("hero.dolphinTour")}
             />
             <Polaroid
               src={imgLovinaSunriseBeach}
               rotation="rotate-[-2deg]"
-              caption="Lovina Calm Sea"
+              caption={t("hero.lovinaCalmSea")}
             />
             <Polaroid
               src={imgWildDolphinsSwimmingInTheOceanAtSunrise}
               rotation="rotate-[4deg]"
-              caption="Sunrise Lovina"
+              caption={t("hero.sunriseLovina")}
             />
           </div>
 
@@ -132,16 +129,13 @@ export default function Hero({
               {/* Speech Bubble Header */}
               <div className="absolute top-[-26px] sm:top-[-34px] lg:top-[-30px] xl:top-[-38px] 2xl:top-[-45px] right-2.5 sm:right-4 xl:right-6 bg-sky-400 border-2 sm:border-3 border-[#0b3c5d] text-white rounded-[10px] sm:rounded-[14px] xl:rounded-[16px] px-2 py-0.5 sm:px-3 sm:py-1 xl:px-5 xl:py-1.5 2xl:px-6 2xl:py-2 shadow-[2px_2px_0px_#0b3c5d] sm:shadow-[3px_3px_0px_#0b3c5d] z-20">
                 <div className="text-[7px] sm:text-[8px] lg:text-[7px] xl:text-[10px] 2xl:text-xs uppercase font-extrabold tracking-wider text-[#00263f]">
-                  Start From
+                  {t("hero.startFrom")}
                 </div>
                 <div className="text-sm sm:text-base lg:text-sm xl:text-xl 2xl:text-2xl font-black text-[#00263f] leading-none my-0.5">
-                  {currency === "IDR"
-                    ? `Rp ${tripType === "open" ? "80.000" : "300.000"}`
-                    : formatUsd(startingPrices[tripType])
-                  }
+                  {formatStartPrice(tripType)}
                 </div>
                 <div className="text-[7px] sm:text-[8px] lg:text-[7px] xl:text-[9px] 2xl:text-[10px] text-right font-bold italic text-[#00263f]">
-                  Book Now!
+                  {t("hero.bookNow")}
                 </div>
               </div>
 
@@ -149,14 +143,14 @@ export default function Hero({
               <div className="mb-1.5 sm:mb-3 lg:mb-1.5 xl:mb-3 2xl:mb-5">
                 <h3 className="font-bold text-[#0b3c5d] text-[11px] sm:text-sm lg:text-xs xl:text-base 2xl:text-lg mb-1.5 sm:mb-3 lg:mb-1.5 xl:mb-3 uppercase tracking-wider flex items-center gap-1.5">
                   <Check className="w-3 h-3 sm:w-4 sm:h-4 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4 2xl:w-5 2xl:h-5 text-emerald-600 stroke-[3]" />
-                  Tour Packages List
+                  {t("hero.tourList")}
                 </h3>
 
                 {/* Private Boat Pax Selector */}
                 {tripType === "private" && (
                   <div className="bg-sky-50 border-2 border-[#0b3c5d] rounded-lg p-1.5 sm:p-2 lg:p-1.5 xl:p-2.5 mb-1.5 sm:mb-3 lg:mb-1.5 xl:mb-3 text-center">
                     <div className="text-[8px] sm:text-[10px] lg:text-[8px] xl:text-[11px] font-bold text-[#0b3c5d] uppercase mb-1">
-                      Select Number of Passengers
+                      {t("hero.selectPassengers")}
                     </div>
                     <div className="flex justify-center gap-1 sm:gap-1.5">
                       {[2, 3, 4].map((pax) => (
@@ -169,7 +163,7 @@ export default function Hero({
                               : "bg-white border-[#0b3c5d] text-[#0b3c5d] hover:bg-sky-100"
                           }`}
                         >
-                          {pax} People
+                          {pax} {t("hero.people")}
                         </button>
                       ))}
                     </div>
@@ -192,7 +186,7 @@ export default function Hero({
                           </span>
                         </div>
                         <span className="text-[9px] sm:text-[11px] lg:text-[10px] xl:text-xs 2xl:text-sm font-black text-[#d95e36] bg-orange-50 px-1 sm:px-1.5 py-0.5 rounded border border-orange-200 shrink-0">
-                          {currency === "IDR" ? pkg.price : formatUsd(pkg.priceNum)}
+                          {locale === "id" ? pkg.price : formatPrice(pkg.priceNum)}
                         </span>
                       </div>
                     ))
@@ -211,7 +205,7 @@ export default function Hero({
                             </span>
                           </div>
                           <span className="text-[9px] sm:text-[11px] lg:text-[10px] xl:text-xs 2xl:text-sm font-black text-[#d95e36] bg-orange-50 px-1 sm:px-1.5 py-0.5 rounded border border-orange-200 shrink-0">
-                            {currency === "IDR" ? `${formattedPrice}k` : formatUsd(currentPrice)}
+                            {locale === "id" ? `${formattedPrice}k` : formatPrice(currentPrice)}
                           </span>
                         </div>
                       );
@@ -223,8 +217,7 @@ export default function Hero({
                 <div className="border border-sky-100 bg-sky-50/50 rounded-lg p-1 sm:p-2 lg:p-1.5 xl:p-2 text-[7px] sm:text-[9px] lg:text-[8px] xl:text-[9px] text-gray-500 mb-2 sm:mb-3 lg:mb-2 xl:mb-4 flex gap-1 items-start">
                   <Info className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#0b3c5d] shrink-0 mt-0.5" />
                   <span>
-                    Price is per boat. More than 5 people price will be the same
-                    as share boat.
+                    {t("hero.priceNotice")}
                   </span>
                 </div>
               )}
@@ -237,13 +230,14 @@ export default function Hero({
                     : "Private Boat Package",
                   tripType === "private",
                   privatePax,
+                  locale,
                 )}
                 target="_blank"
                 rel="noreferrer"
                 className="w-full bg-[#d95e36] hover:bg-[#c64d26] border-2 sm:border-3 border-[#0b3c5d] text-white font-bold py-1.5 px-2.5 sm:py-2.5 sm:px-4 lg:py-2 lg:px-3 xl:py-3 xl:px-5 2xl:py-3.5 2xl:px-6 rounded-lg xl:rounded-xl shadow-[2px_2px_0px_#0b3c5d] sm:shadow-[3px_3px_0px_#0b3c5d] hover:translate-y-0.5 active:translate-y-1 transition-all flex items-center justify-center gap-1.5 text-[10px] sm:text-xs lg:text-[11px] xl:text-sm 2xl:text-base uppercase"
               >
                 <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4 2xl:w-5 2xl:h-5 fill-white" />
-                Book via WhatsApp
+                {t("hero.bookWhatsapp")}
               </a>
             </div>
           </div>
