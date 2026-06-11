@@ -37,7 +37,7 @@ export default function Footer() {
               {t("footer.readyDesc")}
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto shrink-0">
+          <div className="flex flex-col lg:flex-row items-center gap-4 w-full md:w-auto shrink-0">
             <a
               href={getWhatsAppLink("Booking Inquiry", false, undefined, locale)}
               target="_blank"

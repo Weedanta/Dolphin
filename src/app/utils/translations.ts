@@ -38,7 +38,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "journey.lifeJackets": "Life Jackets",
     "journey.snorkelingGear": "Snorkeling Gear",
     "journey.freePhotos": "Free Photos",
-    "journey.goProRental": "GoPro Rental",
+    "journey.goProRental": "Insta360 Rental",
     "journey.professional": "Professional",
     "journey.guide": "Guide",
 
@@ -120,7 +120,7 @@ const translations: Record<Locale, Record<string, string>> = {
     "journey.lifeJackets": "Pelampung",
     "journey.snorkelingGear": "Alat Snorkeling",
     "journey.freePhotos": "Foto Gratis",
-    "journey.goProRental": "Sewa GoPro",
+    "journey.goProRental": "Sewa Insta360",
     "journey.professional": "Pemandu",
     "journey.guide": "Profesional",
 

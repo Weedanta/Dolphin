@@ -40,7 +40,7 @@ export default function Header({ visible, isTransparent, setTripType }: HeaderPr
             Doltrip Lovina
           </span>
         </a>
-        <nav className={`hidden md:flex items-center gap-4 lg:gap-8 font-semibold text-[13px] lg:text-[15px] transition-colors duration-300 ${
+        <nav className={`hidden lg:flex items-center gap-4 lg:gap-8 font-semibold text-[13px] lg:text-[15px] transition-colors duration-300 ${
           isTransparent ? "text-white/90" : "text-gray-700"
         }`}>
           <a href="#journey" className={`transition-colors whitespace-nowrap ${isTransparent ? "hover:text-white" : "hover:text-[#d95e36]"}`}>{t("nav.whatYouGet")}</a>
@@ -91,7 +91,7 @@ export default function Header({ visible, isTransparent, setTripType }: HeaderPr
             href={getWhatsAppLink("General Inquiry", false, undefined, locale)}
             target="_blank"
             rel="noreferrer"
-            className="hidden md:inline-flex bg-gradient-to-r from-[#e06c45] to-[#d95e36] hover:shadow-lg hover:shadow-orange-500/20 text-white font-semibold text-[11px] sm:text-xs md:text-sm px-3 py-2 sm:px-3.5 sm:py-2.5 md:px-6 md:py-3 rounded-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] items-center gap-1.5 sm:gap-2 whitespace-nowrap"
+            className="hidden lg:inline-flex bg-gradient-to-r from-[#e06c45] to-[#d95e36] hover:shadow-lg hover:shadow-orange-500/20 text-white font-semibold text-[11px] sm:text-xs md:text-sm px-3 py-2 sm:px-3.5 sm:py-2.5 md:px-6 md:py-3 rounded-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] items-center gap-1.5 sm:gap-2 whitespace-nowrap"
           >
             <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             {t("nav.bookNow")}
@@ -99,7 +99,7 @@ export default function Header({ visible, isTransparent, setTripType }: HeaderPr
           {/* Mobile hamburger button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`md:hidden p-2 rounded-lg transition-colors ${
+            className={`lg:hidden p-2 rounded-lg transition-colors ${
               isLight ? "text-white hover:bg-white/10" : "text-[#0b3c5d] hover:bg-gray-100"
             }`}
             aria-label={t("nav.toggleMenu")}
@@ -110,7 +110,7 @@ export default function Header({ visible, isTransparent, setTripType }: HeaderPr
       </div>
 
       {/* Mobile dropdown menu */}
-      <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+      <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
         mobileMenuOpen ? "max-h-[350px] opacity-100" : "max-h-0 opacity-0"
       }`}>
         <nav className="bg-white/95 backdrop-blur-md border-t border-gray-100 px-4 py-4 flex flex-col gap-1.5">
