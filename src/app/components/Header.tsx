@@ -91,7 +91,7 @@ export default function Header({ visible, isTransparent, setTripType }: HeaderPr
             href={getWhatsAppLink("General Inquiry", false, undefined, locale)}
             target="_blank"
             rel="noreferrer"
-            className="bg-gradient-to-r from-[#e06c45] to-[#d95e36] hover:shadow-lg hover:shadow-orange-500/20 text-white font-semibold text-[11px] sm:text-xs md:text-sm px-3 py-2 sm:px-3.5 sm:py-2.5 md:px-6 md:py-3 rounded-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] inline-flex items-center gap-1.5 sm:gap-2 whitespace-nowrap"
+            className="hidden md:inline-flex bg-gradient-to-r from-[#e06c45] to-[#d95e36] hover:shadow-lg hover:shadow-orange-500/20 text-white font-semibold text-[11px] sm:text-xs md:text-sm px-3 py-2 sm:px-3.5 sm:py-2.5 md:px-6 md:py-3 rounded-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] items-center gap-1.5 sm:gap-2 whitespace-nowrap"
           >
             <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             {t("nav.bookNow")}
@@ -111,13 +111,24 @@ export default function Header({ visible, isTransparent, setTripType }: HeaderPr
 
       {/* Mobile dropdown menu */}
       <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-        mobileMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+        mobileMenuOpen ? "max-h-[350px] opacity-100" : "max-h-0 opacity-0"
       }`}>
-        <nav className="bg-white/95 backdrop-blur-md border-t border-gray-100 px-4 py-4 flex flex-col gap-1">
+        <nav className="bg-white/95 backdrop-blur-md border-t border-gray-100 px-4 py-4 flex flex-col gap-1.5">
           <a href="#journey" onClick={() => setMobileMenuOpen(false)} className="text-[#0b3c5d] font-semibold text-sm py-2.5 px-3 rounded-lg hover:bg-sky-50 transition-colors">{t("nav.whatYouGet")}</a>
           <a href="#pricing" onClick={() => { setTripType("open"); setMobileMenuOpen(false); }} className="text-[#0b3c5d] font-semibold text-sm py-2.5 px-3 rounded-lg hover:bg-sky-50 transition-colors">{t("nav.packages")}</a>
           <a href="#pricing" onClick={() => { setTripType("open"); setMobileMenuOpen(false); }} className="text-[#0b3c5d] font-semibold text-sm py-2.5 px-3 rounded-lg hover:bg-sky-50 transition-colors">{t("nav.openTrip")}</a>
           <a href="#pricing" onClick={() => { setTripType("private"); setMobileMenuOpen(false); }} className="text-[#0b3c5d] font-semibold text-sm py-2.5 px-3 rounded-lg hover:bg-sky-50 transition-colors">{t("nav.privateBoat")}</a>
+          
+          <a
+            href={getWhatsAppLink("General Inquiry", false, undefined, locale)}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => setMobileMenuOpen(false)}
+            className="mt-2 text-center bg-gradient-to-r from-[#e06c45] to-[#d95e36] text-white font-semibold text-sm py-3 px-4 rounded-xl shadow-md hover:shadow-orange-500/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+          >
+            <MessageCircle className="w-4 h-4" />
+            {t("nav.bookNow")}
+          </a>
         </nav>
       </div>
     </header>
