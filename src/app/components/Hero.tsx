@@ -1,4 +1,5 @@
 import { Check, Info, Instagram, MessageCircle, Phone } from "lucide-react";
+import { TikTokIcon, WhatsAppIcon } from "@/app/utils/icons";
 import imgLovinaSunriseBeach from "@/imports/Design/lovina_sunrise_beach.png";
 import imgLovinaJukungBoat from "@/imports/Design/lovina_jukung_boat.png";
 import imgWildDolphinsSwimmingInTheOceanAtSunrise from "@/imports/Design/3ce13b3f2b2f1f3d9ef09e61095ac9fdc95e73f3.png";
@@ -255,7 +256,8 @@ export default function Hero({
             rel="noreferrer"
             className="flex items-center gap-1.5 hover:text-[#d95e36] font-bold text-[10px] sm:text-[10px] lg:text-[10px] xl:text-xs 2xl:text-sm text-[#0b3c5d] transition-colors"
           >
-            <Phone className="w-3 h-3 sm:w-3.5 sm:h-3.5 xl:w-4 xl:h-4 2xl:w-5 2xl:h-5 text-green-500 fill-green-500" />
+            
+            <WhatsAppIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5 xl:w-4 xl:h-4 2xl:w-5 2xl:h-5 text-green-500 fill-green-500" />
             <span>081947723849</span>
           </a>
           <a
@@ -273,9 +275,7 @@ export default function Hero({
             rel="noreferrer"
             className="flex items-center gap-1.5 hover:text-[#d95e36] font-bold text-[10px] sm:text-[10px] lg:text-[10px] xl:text-xs 2xl:text-sm text-[#0b3c5d] transition-colors"
           >
-            <span className="w-3 h-3 sm:w-3.5 sm:h-3.5 xl:w-4 xl:h-4 2xl:w-5 2xl:h-5 bg-[#0b3c5d] text-white rounded-full flex items-center justify-center font-black text-[6px] sm:text-[7px] xl:text-[8px] 2xl:text-[9px]">
-              T
-            </span>
+            <TikTokIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5 xl:w-4 xl:h-4 2xl:w-5 2xl:h-5 text-[#0b3c5d]" />
             <span>doltrip.lovina</span>
           </a>
         </div>

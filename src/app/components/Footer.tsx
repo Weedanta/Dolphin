@@ -1,4 +1,5 @@
 import { MessageCircle, Instagram } from "lucide-react";
+import { WhatsAppIcon, TikTokIcon } from "@/app/utils/icons";
 import { motion } from "framer-motion";
 import imgDoltripLovinaLogo from "@/imports/Design/d303a0c9165b71c7002d625facdd22a45d8aabe1.png";
 import imgLovinaSunriseBeach from "@/imports/Design/lovina_sunrise_beach.png";
@@ -124,7 +125,7 @@ export default function Footer() {
                   className="w-10 h-10 rounded-full bg-gray-800 hover:bg-[#d95e36] text-white flex items-center justify-center transition-all duration-300"
                   title="WhatsApp"
                 >
-                  <MessageCircle className="w-5 h-5 fill-white" />
+                  <WhatsAppIcon className="w-5 h-5" />
                 </a>
                 <a
                   href="https://instagram.com/doltrip.lovina"
@@ -142,7 +143,7 @@ export default function Footer() {
                   className="w-10 h-10 rounded-full bg-gray-800 hover:bg-[#d95e36] text-white flex items-center justify-center transition-all duration-300"
                   title="TikTok"
                 >
-                  <span className="font-bold text-xs">TikTok</span>
+                  <TikTokIcon className="w-5 h-5" />
                 </a>
               </div>
             </div>
@@ -150,7 +151,7 @@ export default function Footer() {
 
           {/* Bottom Border */}
           <div className="border-t border-gray-800 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 text-xs">
-            <p className="text-gray-500">
+            <p className="text-gray-500"> 
               {t("footer.copyright")}
             </p>
             <div className="flex gap-6 text-gray-500">

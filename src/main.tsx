@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate, useParams, useNavigate } from "react-router";
 import App from "./app/App.tsx";
+import LinkTree from "./app/components/LinkTree.tsx";
 import { LanguageProvider } from "./app/utils/LanguageContext.tsx";
 import type { Locale } from "./app/utils/translations.ts";
 import "./styles/index.css";
@@ -131,6 +132,7 @@ function LocalizedApp() {
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <Routes>
+      <Route path="/link" element={<LinkTree />} />
       <Route path="/:lang" element={<LocalizedApp />} />
       <Route path="*" element={<Navigate to={`/${detectLocale()}`} replace />} />
     </Routes>
