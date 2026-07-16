@@ -58,7 +58,7 @@ export default function LinkTree() {
     {
       icon: <PriceListIcon className="w-6 h-6" />,
       label: "Price List",
-      href: "https://drive.google.com/file/d/1BIYMnU0_7VIHYtCN4JC7_5YmFpSL10Zh/view",
+      href: "https://drive.google.com/file/d/1bGSvQaWfmVL1QM_WuKQfcPiLVa55_zS8/view",
       color: "from-amber-400 to-orange-500",
       hoverColor: "from-amber-500 to-orange-600",
     },

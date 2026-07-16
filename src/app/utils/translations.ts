@@ -37,10 +37,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "journey.ceremony": "Ceremony",
     "journey.lifeJackets": "Life Jackets",
     "journey.snorkelingGear": "Snorkeling Gear",
-    "journey.freePhotos": "Free Photos",
-    "journey.goProRental": "Insta360 Rental",
-    "journey.professional": "Professional",
-    "journey.guide": "Guide",
+    "journey.freePhotos": "Free Underwater Case",
+    "journey.captain": "Professional Captain",
 
     // ── Pricing ──
     "pricing.title": "Choose Your Experience",
@@ -57,6 +55,11 @@ const translations: Record<Locale, Record<string, string>> = {
     "pricing.bookOpen": "Book Open Trip",
     "pricing.bookPrivate": "Book Private Boat",
     "pricing.liveRate": "Live rate: 1 USD = Rp",
+
+    // ── Additional Services ──
+    "services.title": "Additional Services",
+    "services.desc": "Optional add-ons you can book alongside any package.",
+    "services.book": "Inquire via WhatsApp",
 
     // ── Footer ──
     "footer.readyTitle": "Ready to Meet the Dolphins?",
@@ -119,10 +122,8 @@ const translations: Record<Locale, Record<string, string>> = {
     "journey.ceremony": "Bali",
     "journey.lifeJackets": "Pelampung",
     "journey.snorkelingGear": "Alat Snorkeling",
-    "journey.freePhotos": "Foto Gratis",
-    "journey.goProRental": "Sewa Insta360",
-    "journey.professional": "Pemandu",
-    "journey.guide": "Profesional",
+    "journey.freePhotos": "Underwater Case Gratis",
+    "journey.captain": "Kapten Profesional",
 
     // ── Pricing ──
     "pricing.title": "Pilih Pengalaman Anda",
@@ -139,6 +140,11 @@ const translations: Record<Locale, Record<string, string>> = {
     "pricing.bookOpen": "Pesan Open Trip",
     "pricing.bookPrivate": "Pesan Private Boat",
     "pricing.liveRate": "Kurs langsung: 1 USD = Rp",
+
+    // ── Additional Services ──
+    "services.title": "Layanan Tambahan",
+    "services.desc": "Add-on opsional yang bisa dipesan bersama paket apa pun.",
+    "services.book": "Tanya via WhatsApp",
 
     // ── Footer ──
     "footer.readyTitle": "Siap Bertemu Lumba-Lumba?",
