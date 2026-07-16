@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Journey from "./components/Journey";
 import Pricing from "./components/Pricing";
+import AdditionalServices from "./components/AdditionalServices";
 import Footer from "./components/Footer";
 import { useLanguage } from "./utils/LanguageContext";
 
@@ -119,6 +120,9 @@ export default function App() {
             privatePax={privatePax}
             setPrivatePax={setPrivatePax}
           />
+
+          {/* Additional Services */}
+          <AdditionalServices />
 
           {/* Footer & Call to Action */}
           <Footer />

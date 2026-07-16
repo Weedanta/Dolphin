@@ -45,8 +45,7 @@ const iconConfigs = [
   { svgViewBox: "0 0 26.6667 33.3333", svgPath: "p1f8bd100", wrapW: "w-[22.4px] sm:w-[26.667px]", wrapH: "h-[28px] sm:h-[33.333px]", keys: ["journey.lifeJackets"] },
   { svgViewBox: "0 0 36.6667 35", svgPath: "p1dfa2d00", wrapW: "w-[29.3px] sm:w-[36.667px]", wrapH: "h-[28px] sm:h-[35px]", keys: ["journey.snorkelingGear"] },
   { svgViewBox: "0 0 33.3333 30", svgPath: "p2160e4c0", wrapW: "w-[27.7px] sm:w-[33.333px]", wrapH: "h-[25px] sm:h-[30px]", keys: ["journey.freePhotos"] },
-  { svgViewBox: "0 0 33.3333 26.6667", svgPath: "p2fb92e00", wrapW: "w-[27.5px] sm:w-[33.333px]", wrapH: "h-[22px] sm:h-[26.667px]", keys: ["journey.goProRental"] },
-  { svgViewBox: "0 0 33.3333 30", svgPath: "p228da600", wrapW: "w-[27.7px] sm:w-[33.333px]", wrapH: "h-[25px] sm:h-[30px]", keys: ["journey.professional", "journey.guide"] },
+  { svgViewBox: "0 0 33.3333 30", svgPath: "p228da600", wrapW: "w-[27.7px] sm:w-[33.333px]", wrapH: "h-[25px] sm:h-[30px]", keys: ["journey.captain"] },
 ];
 
 export default function Journey() {
@@ -85,7 +84,7 @@ export default function Journey() {
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
           className="bg-white border-3 sm:border-4 border-[#0b3c5d] rounded-[20px] sm:rounded-[32px] p-4 sm:p-6 md:p-10 shadow-[4px_4px_0px_rgba(11,60,93,0.15)] sm:shadow-[6px_6px_0px_rgba(11,60,93,0.15)]"
         >
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 md:gap-6 w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6 w-full">
             {iconConfigs.map((cfg, i) => (
               <motion.div key={i} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={cardVariants}>
                 <IconCard
