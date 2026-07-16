@@ -38,7 +38,7 @@ export function LanguageProvider({
   const formatStartPrice = useMemo(() => {
     if (locale === "id") {
       return (tripType: "open" | "private") => {
-        return tripType === "open" ? "Rp 80.000" : "Rp 300.000";
+        return `Rp ${new Intl.NumberFormat("id-ID").format(startingPrices[tripType])}`;
       };
     }
     return (tripType: "open" | "private") => formatUsd(startingPrices[tripType]);
