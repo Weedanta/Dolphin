@@ -77,6 +77,20 @@ const translations: Record<Locale, Record<string, string>> = {
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Service",
 
+    // ── 404 Not Found ──
+    "notfound.tag": "PAGE NOT FOUND",
+    "notfound.title": "Oops! Lost in the Ocean?",
+    "notfound.subtitle": "404 Error",
+    "notfound.desc": "Looks like our dolphins took you to uncharted waters. The page you are looking for might have been moved or doesn't exist.",
+    "notfound.backHome": "Back to Home",
+    "notfound.viewPackages": "View Tour Packages",
+    "notfound.contactSupport": "Chat WhatsApp Support",
+
+    // ── Sticky Mobile CTA ──
+    "cta.mobileFrom": "Starts From",
+    "cta.mobilePerPax": "/ pax",
+    "cta.mobileBook": "Book Now",
+
     // ── WhatsApp ──
     "wa.greeting": "Hello Doltrip Lovina, I would like to book the",
     "wa.package": "package",
@@ -161,6 +175,20 @@ const translations: Record<Locale, Record<string, string>> = {
     "footer.copyright": "© 2026 Doltrip Lovina. Hak cipta dilindungi.",
     "footer.privacy": "Kebijakan Privasi",
     "footer.terms": "Syarat & Ketentuan",
+
+    // ── 404 Not Found ──
+    "notfound.tag": "HALAMAN TIDAK DITEMUKAN",
+    "notfound.title": "Oops! Tersesat di Samudra?",
+    "notfound.subtitle": "404 Error",
+    "notfound.desc": "Sepertinya lumba-lumba kami membawa Anda ke perairan yang belum dipetakan. Halaman yang Anda cari mungkin telah dipindahkan atau tidak tersedia.",
+    "notfound.backHome": "Kembali ke Beranda",
+    "notfound.viewPackages": "Lihat Paket Tour",
+    "notfound.contactSupport": "Chat WhatsApp Support",
+
+    // ── Sticky Mobile CTA ──
+    "cta.mobileFrom": "Mulai Dari",
+    "cta.mobilePerPax": "/ orang",
+    "cta.mobileBook": "Pesan via WA",
 
     // ── WhatsApp ──
     "wa.greeting": "Halo Doltrip Lovina, saya ingin memesan paket",
