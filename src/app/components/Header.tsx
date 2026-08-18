@@ -33,7 +33,11 @@ export default function Header({ visible, isTransparent, setTripType }: HeaderPr
     }`}>
       <div className="max-w-7xl mx-auto px-4 md:px-6 h-14 sm:h-16 md:h-20 flex justify-between items-center">
         <a href={`/${locale}`} className="flex items-center gap-2 sm:gap-3 hover:opacity-90 transition-opacity shrink-0">
-          <img src={imgDoltripLovinaLogo} alt="Doltrip Lovina Logo" className="w-8 h-8 sm:w-9 sm:h-9 md:w-12 md:h-12 object-contain" />
+          <img
+            src={imgDoltripLovinaLogo}
+            alt="Doltrip Lovina - Tour Lumba-Lumba & Snorkeling Lovina Bali Official Logo"
+            className="w-8 h-8 sm:w-9 sm:h-9 md:w-12 md:h-12 object-contain"
+          />
           <span className={`font-['Poppins',sans-serif] font-bold text-sm sm:text-base md:text-xl lg:text-2xl tracking-wide transition-colors duration-300 ${
             isLight ? "text-white" : "text-[#0b3c5d]"
           }`}>

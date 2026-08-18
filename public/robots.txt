@@ -1,0 +1,6 @@
+# Robots.txt for Doltrip Lovina (https://doltriplovina.my.id)
+User-agent: *
+Allow: /
+
+# XML Sitemap location
+Sitemap: https://doltriplovina.my.id/sitemap.xml

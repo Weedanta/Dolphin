@@ -330,3 +330,9 @@
   animation: linktree-card-enter 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+

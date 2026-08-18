@@ -117,7 +117,7 @@ export default function LinkTree() {
       <div className="fixed inset-0 z-0">
         <img
           src={imgLovinaSunriseBeach}
-          alt="Lovina Beach"
+          alt="Pemandangan pagi Pantai Lovina Bali dengan perahu tradisional"
           className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-sky-400/20 via-sky-200/30 to-[#fbf9f7]/80" />
@@ -133,7 +133,7 @@ export default function LinkTree() {
             <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white p-1 shadow-xl shadow-sky-200/50 ring-2 ring-white/80">
               <img
                 src={imgDoltripLogo}
-                alt="Doltrip Lovina"
+                alt="Doltrip Lovina Official Team Logo"
                 className="w-full h-full rounded-full object-cover"
               />
             </div>
@@ -197,7 +197,7 @@ export default function LinkTree() {
                   className={`absolute inset-0 bg-gradient-to-r ${hoveredIndex === index ? link.hoverColor : link.color} opacity-0 transition-opacity duration-300 ${
                     hoveredIndex === index ? "opacity-[0.06]" : ""
                   }`}
-                />
+                ></div>
 
                 {/* Content */}
                 <div className="relative flex items-center px-2 py-1 sm:px-4 sm:py-2">
@@ -259,7 +259,7 @@ export default function LinkTree() {
             href="/id"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-sm border border-white/50 shadow-sm text-[#0b3c5d] font-semibold text-xs sm:text-sm hover:bg-white/80 hover:shadow-md transition-all duration-300"
           >
-            <img src={imgDoltripLogo} alt="" className="w-4 h-4 rounded-full" />
+            <img src={imgDoltripLogo} alt="Doltrip Lovina Official Icon" className="w-4 h-4 rounded-full" />
             doltriplovina.my.id
           </a>
           <p className="text-[10px] text-[#0b3c5d]/40 font-medium tracking-wider uppercase">

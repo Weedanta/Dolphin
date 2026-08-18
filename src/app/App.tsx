@@ -7,6 +7,7 @@ import Journey from "./components/Journey";
 import Pricing from "./components/Pricing";
 import AdditionalServices from "./components/AdditionalServices";
 import Footer from "./components/Footer";
+import MobileStickyCta from "./components/MobileStickyCta";
 import { useLanguage } from "./utils/LanguageContext";
 
 export default function App() {
@@ -128,6 +129,9 @@ export default function App() {
           <Footer />
         </motion.div>
       </AnimatePresence>
+
+      {/* Sticky Bottom CTA for Mobile */}
+      <MobileStickyCta />
     </div>
   );
 }

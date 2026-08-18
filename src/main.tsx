@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate, useParams, useNavigate } from "react-router";
 import App from "./app/App.tsx";
 import LinkTree from "./app/components/LinkTree.tsx";
+import NotFound from "./app/components/NotFound.tsx";
 import { LanguageProvider } from "./app/utils/LanguageContext.tsx";
 import type { Locale } from "./app/utils/translations.ts";
 import "./styles/index.css";
@@ -61,6 +62,11 @@ function LocalizedApp() {
   const { lang } = useParams<{ lang: string }>();
   const navigate = useNavigate();
   const normalizedLang = lang?.toLowerCase();
+
+  // If the parameter is not a valid language, show 404
+  if (normalizedLang !== "id" && normalizedLang !== "en") {
+    return <NotFound />;
+  }
 
   // Normalize case (e.g. /ID -> /id) and save choice
   useEffect(() => {
@@ -132,9 +138,11 @@ function LocalizedApp() {
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <Routes>
+      <Route path="/" element={<Navigate to={`/${detectLocale()}`} replace />} />
       <Route path="/link" element={<LinkTree />} />
+      <Route path="/404" element={<NotFound />} />
       <Route path="/:lang" element={<LocalizedApp />} />
-      <Route path="*" element={<Navigate to={`/${detectLocale()}`} replace />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   </BrowserRouter>
 );

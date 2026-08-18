@@ -40,7 +40,7 @@ export default function Pricing({
   privatePax,
   setPrivatePax,
 }: PricingProps) {
-  const { locale, t, formatPrice } = useLanguage();
+  const { locale, t, formatPrice, rateLoading } = useLanguage();
 
   return (
     <section id="pricing" className="py-12 sm:py-16 bg-[#f5f3f1] relative z-10 border-t border-gray-200/40">

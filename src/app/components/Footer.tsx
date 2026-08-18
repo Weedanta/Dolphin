@@ -17,7 +17,11 @@ export default function Footer() {
         <div className="absolute inset-0 z-0">
           <img
             src={imgLovinaSunriseBeach}
-            alt="Lovina Sunrise Beach"
+            alt={
+              locale === "id"
+                ? "Pemandangan magis matahari terbit dan laut tenang di Lovina Beach Bali"
+                : "Magical sunrise reflection over calm ocean waters in Lovina Beach Bali"
+            }
             className="w-full h-full object-cover object-center scale-105 animate-[zoom-slow_20s_infinite_alternate]"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#031f35]/90 via-[#0b3c5d]/85 to-[#0b3c5d]/70" />
@@ -70,7 +74,7 @@ export default function Footer() {
               <div className="flex items-center gap-3 mb-6">
                 <img
                   src={imgDoltripLovinaLogo}
-                  alt="Doltrip Lovina Logo"
+                  alt="Doltrip Lovina - Official Brand Logo"
                   className="w-10 h-10 object-contain rounded-full"
                 />
                 <span className="font-['Poppins',sans-serif] font-bold text-xl text-white tracking-wide">
