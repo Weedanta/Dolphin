@@ -1,5 +1,6 @@
 import { Check, Info, Instagram, MessageCircle, Phone } from "lucide-react";
 import { TikTokIcon, WhatsAppIcon } from "@/app/utils/icons";
+import ImageWithSkeleton from "@/app/components/ImageWithSkeleton";
 import imgLovinaSunriseBeach from "@/imports/Design/lovina_sunrise_beach.png";
 import imgLovinaJukungBoat from "@/imports/Design/lovina_jukung_boat.png";
 import imgWildDolphinsSwimmingInTheOceanAtSunrise from "@/imports/Design/3ce13b3f2b2f1f3d9ef09e61095ac9fdc95e73f3.png";
@@ -11,15 +12,21 @@ interface PolaroidProps {
   src: string;
   rotation: string;
   caption: string;
+  alt: string;
 }
 
-function Polaroid({ src, rotation, caption }: PolaroidProps) {
+function Polaroid({ src, rotation, caption, alt }: PolaroidProps) {
   return (
     <div
       className={`bg-white p-1 pb-3 xl:p-2 xl:pb-5 2xl:p-3 2xl:pb-7 shadow-xl rounded-sm ${rotation} border border-gray-100 hover:scale-105 hover:rotate-0 hover:z-30 transition-all duration-300 transform select-none`}
     >
       <div className="aspect-[4/3] w-full overflow-hidden bg-gray-50 rounded-sm">
-        <img src={src} alt={caption} className="w-full h-full object-cover" />
+        <ImageWithSkeleton
+          src={src}
+          alt={alt}
+          wrapperClassName="w-full h-full"
+          className="w-full h-full object-cover"
+        />
       </div>
       <div className="mt-1 xl:mt-2 text-center">
         <span className="font-['Poppins'] font-bold text-[6px] xl:text-[9px] 2xl:text-xs text-gray-500 uppercase tracking-widest">
@@ -49,9 +56,14 @@ export default function Hero({
     <section className="relative min-h-screen flex items-center justify-center overflow-visible lg:overflow-hidden z-10">
       {/* Real Beach Background Image */}
       <div className="absolute inset-0 z-0">
-        <img
+        <ImageWithSkeleton
           src={imgLovinaSunriseBeach}
-          alt="Lovina Beach Sunrise"
+          alt={
+            locale === "id"
+              ? "Pemandangan spektakuler matahari terbit di Pantai Lovina Bali dengan perahu tradisional jukung"
+              : "Spectacular panoramic sunrise over Lovina Beach Bali with traditional jukung boats"
+          }
+          wrapperClassName="w-full h-full"
           className="w-full h-full object-cover object-center"
         />
         {/* Sunny turquoise ocean sky overlay */}
@@ -100,21 +112,41 @@ export default function Hero({
               src={imgWildDolphinsSwimmingInTheOceanAtSunrise}
               rotation="rotate-[-4deg]"
               caption={t("hero.sunriseDolphin")}
+              alt={
+                locale === "id"
+                  ? "Lumba-lumba liar berenang dan melompat di laut Pantai Lovina saat matahari terbit"
+                  : "Wild spinner dolphins jumping and swimming in the ocean at Lovina Beach sunrise"
+              }
             />
             <Polaroid
               src={imgLovinaJukungBoat}
               rotation="rotate-[3deg]"
               caption={t("hero.dolphinTour")}
+              alt={
+                locale === "id"
+                  ? "Perahu tradisional kayu jukung untuk tour dolphin di perairan tenang Lovina Bali"
+                  : "Traditional Balinese wooden jukung boat for dolphin watching tours in Lovina Bali"
+              }
             />
             <Polaroid
               src={imgLovinaSunriseBeach}
               rotation="rotate-[-2deg]"
               caption={t("hero.lovinaCalmSea")}
+              alt={
+                locale === "id"
+                  ? "Suasana laut tenang dan cahaya keemasan sunrise di Pantai Lovina Bali"
+                  : "Calm tranquil ocean with golden morning sunlight at Lovina Beach Bali"
+              }
             />
             <Polaroid
               src={imgWildDolphinsSwimmingInTheOceanAtSunrise}
               rotation="rotate-[4deg]"
               caption={t("hero.sunriseLovina")}
+              alt={
+                locale === "id"
+                  ? "Kawanan lumba-lumba Lovina berenang bersama di dekat perahu wisatawan"
+                  : "Group of friendly Lovina dolphins swimming together near tour boat"
+              }
             />
           </div>
 
